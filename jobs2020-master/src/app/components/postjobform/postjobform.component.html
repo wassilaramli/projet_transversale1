@@ -1,0 +1,152 @@
+<app-layout></app-layout>
+<form [formGroup]="postJobForm"  class="with-custom-form-control"  (ngSubmit)="onSubmit()" >
+
+    <div class="container">
+      <div class="row">
+          <div class="col-md-offset-1 col-md-10 col-sm-12">
+              <div class="row ">
+                  <div class="col-md-6 col-sm-12">
+                    <h1 class="title">Étape 1: Créez votre publication en 1 minute</h1>
+                  </div> 
+  
+              </div>
+              <hr>
+              <div *ngIf="!loading" class="row job-details">
+                  <div class="col-md-8 col-sm-7" style="padding:0 20px;">
+  
+                        <div class="form-group">
+                            <label for="usr">Position *</label>
+                            <input type="text" class="form-control" placeholder="e.g. Full Stack Java developer"  formControlName="jobtitle"  [ngClass]="{ 'is-invalid': submitted && f.jobtitle.errors }">
+                            <div *ngIf="submitted && f.jobtitle.errors" class="invalid-feedback">
+                                <div *ngIf="f.jobtitle.errors.required">Champ position obligatoire !</div>
+                            </div>
+                        </div>
+  
+                        <div class="form-group">
+                            <label >Catégorie *</label>
+                            <select class="form-control" placeholder="Domaine " formControlName="category"  [ngClass]="{ 'is-invalid': submitted && f.category.errors }">
+                                <option  [selected]="'true'" disabled value="" >Selectionnez un domaine   </option>
+                                <option selected>Développement web</option>
+                              <option>Développement mobile</option>
+                              <option>Développement desktop</option>
+                              <option>Administration système</option>
+                              <option>Intelligence artificielle</option>
+                              <option>Big Data</option>
+                              <option>Autre</option>
+                            </select>
+                            <div *ngIf="submitted && f.category.errors" class="invalid-feedback">
+                                <div *ngIf="f.category.errors.required">Champ domaine obligatoire !</div>
+                            </div>
+                          </div>
+                          
+                          <div class="form-group">
+                            <label >Compétences *</label>
+                            <tag-input  formControlName="skills"  [ngClass]="{ 'is-invalid': submitted && f.skills.errors }" ></tag-input>
+                            <div *ngIf="submitted && f.skills.errors" class="invalid-feedback">
+                                <div *ngIf="f.skills.errors.required">Champ Compétences obligatoire !</div>
+                            </div>
+                        </div>
+
+  
+  
+                        <div class="form-group">
+                          <label for="usr">Type d'emploi *</label>
+                          <select class="form-control"   formControlName="job_type"  [ngClass]="{ 'is-invalid': submitted && f.job_type.errors }">
+                            <option  [selected]="true" disabled value="" >Type d'emploi</option>
+                            <option  >À plein temps</option>
+                            <option >Contrat</option>
+                            <option >À temps partiel</option>
+                            <option>Stage</option>
+                            <option >Temporaire</option>
+                            <option >Commission</option>    
+                          </select>
+                          <div *ngIf="submitted && f.job_type.errors" class="invalid-feedback">
+                            <div *ngIf="f.job_type.errors.required">Champ type obligatoire !</div>
+                        </div>
+                        </div>
+  
+  
+                        <div class="form-group">
+                          <label for="usr">Région candidate *</label>
+                          <input type="text" class="form-control" placeholder="exemple : USA" formControlName="condidate_region"  [ngClass]="{ 'is-invalid': submitted && f.condidate_region.errors }">
+                          <div *ngIf="submitted && f.condidate_region.errors" class="invalid-feedback">
+                                <div *ngIf="f.condidate_region.errors.required">Champ région obligatoire !</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="usr">Salaire *</label>
+                          <input type="text" class="form-control" placeholder="Exemple :  $40-50 K/Year" formControlName="price"  [ngClass]="{ 'is-invalid': submitted && f.price.errors }">
+                          <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                            <div *ngIf="f.price.errors.required">Champ salaire obligatoire !</div>
+                        </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="usr">Comment postuler ? *</label>
+                          <input type="text" class="form-control" id="usr" formControlName="company_url"  [ngClass]="{ 'is-invalid': submitted && f.company_url.errors }">
+                          <span class="comment-input">URL ou e-mail où les candidats peuvent postuler à ce poste</span>
+                          <div *ngIf="submitted && f.company_url.errors" class="invalid-feedback">
+                            <div *ngIf="f.company_url.errors.required">Champ comment postuler obligatoire !</div>
+                        </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="usr">Resumé annonce *</label>
+                            <textarea rows="5" style="height: auto !important;" class="form-control" id="usr" formControlName="snippet"  [ngClass]="{ 'is-invalid': submitted && f.snippet.errors }">
+
+                            </textarea>
+                          
+                            <div *ngIf="submitted && f.snippet.errors" class="invalid-feedback">
+                              <div *ngIf="f.snippet.errors.required">Champ resumé obligatoire !</div>
+                          </div>
+                          </div>
+
+                        
+                        <br>
+                        <div class="form-group">
+                          <label for="usr">Description de l'emploi *</label>
+                         
+                          <ckeditor     [config]="{ removePlugins: 'sourcearea,about,image' }"  formControlName="description" data="<p>Hello, world!</p>"></ckeditor>
+                          <div class="comment-input">Donnez une brève description du travail. Vous pouvez toujours modifier après avoir publié votre emploi!</div>
+                          <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                            <div *ngIf="f.description.errors.required">Champ description obligatoire !</div>
+                        </div>
+                        </div>
+                        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+                      
+  
+                  </div> 
+                  <div class="col-md-4 col-sm-5 sticky" >
+                      <div class="panel panel-default ">
+                          <div class="panel-body">
+                            <h1 class="progress-title ">C'est gratuit </h1>
+                              <hr>
+                            
+                                
+                              <h1 class="progress-title "></h1>
+                              <div class="text-center">
+                                  <button type="submit"   class="btn btn-default  btn-lg btn-step"  >
+                                 
+                                    Publier votre<br> annonce
+                                  </button>
+                              </div>
+                              <hr>
+                              <p class="text-center">
+                                Des questions sur votre publication? <br>
+                                Contactez nous sur <a href="mailto:support@devjob.com">support@devjob.com</a>
+                            </p>
+                           
+                            
+                          </div>
+                      </div>
+                    
+                  </div>
+              </div>
+          
+            
+          </div>
+      </div>
+  </div>
+  </form>
+   

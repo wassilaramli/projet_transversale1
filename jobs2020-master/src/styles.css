@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+.ng2-tag-input{
+    padding: 5px 5px 5px 5px !important;
+    border: 2px solid #efefef !important;
+    border-radius: 3px !important;
+}
+
+
+.with-custom-form-control .form-control{
+    background-color: #fff !important;
+    border: 2px solid #e6e6e6 !important;
+    border-radius: 3px !important;
+    height: 53px;
+    box-shadow: none !important;
+}
+

@@ -1,0 +1,230 @@
+.what-section{
+    margin-top: 20px;
+}
+
+.what-form{
+    padding: 20px;
+}
+
+.what-form h1{
+   margin-bottom: 35px;
+}
+
+.what-form-col{
+    padding-right: 0px;
+}
+.btn-find-jobs{
+    background-color: #4a2f9a !important;
+    border-color: #4a2f9a !important;
+    color: #fff !important;
+    padding: 12px 22px;
+    font-weight: 700;
+    border-radius: 9px;
+    outline: none;
+}
+
+.what-form-col .input-what-group{  
+    border-radius:9px;
+    padding: 0;
+    margin: 0;
+    box-shadow: 3px 2px 10px 1px rgba(0,0,0,.08);
+}
+
+
+.what-form-col .input-what{
+    background-color: #fff;
+    box-shadow:none;
+    font-weight: 700;
+    border-radius: 0px 0px 0px 0px;
+    padding: 22px 4px 23px 4px;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-right: none;
+}
+
+
+
+.what-form-col .input-group-addon.what{
+    background-color: transparent;
+    border-radius: 9px 0 0 9px;
+    font-weight: 700;
+    font-family: Hack, monospace; 
+}
+
+.what-form-col  .input-group-addon.search{
+    background-color: transparent;
+    border-radius: 0px 9px 9px 0px;
+    font-weight: 700;
+    font-size: 16px;
+    font-family: Hack, monospace; 
+}
+
+.programming{
+    font-family: Hack, monospace; 
+}
+
+.h4-custom{
+    font-size: 20px;
+    line-height: 30px !important;
+    min-height: 59px;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+  
+    .what-section{
+        margin-top: 0;
+    }
+    
+    .what-form{
+        padding: 20px;
+    }
+    .what-form h1{
+       margin-bottom: 29px;
+       font-size: 26px;
+    line-height: 45px;
+    }
+    
+
+
+    .what-form-col{
+        padding-right:15px;
+    }
+
+    .btn-find-jobs{
+        padding: 8px 22px;
+        font-weight: 600;
+        margin-top: 10px;
+        outline: none;
+
+    }
+
+  }
+
+
+
+
+  .social-box .box{
+      background: #FFF;
+      border-radius:9px;
+      padding: 40px 10px;
+      margin: 20px 0px;
+      cursor: pointer;
+      height: 440px;
+      border: 1px solid #ddd;
+  }
+  
+  .social-box .box:hover,:focus{
+    box-shadow: 3px 2px 10px 1px rgba(0,0,0,.08) !important;
+    outline: none;
+  }
+  
+  .social-box .box .box-text{
+      margin:20px 0px;
+      font-size: 15px;
+      line-height: 30px;
+  }
+  
+  .social-box .box .box-btn a{
+      text-decoration: none;
+      color: #4183D7;
+      font-size: 16px;
+  }
+  
+  .social-box .fa{
+       color:#4183D7;
+  }
+
+  .social-box .title-cards{
+    margin-top: 40px;
+    margin-bottom: 0px;
+  }
+
+.custom-hr{
+    width: 50px;
+    background-color:  #4183D7;
+    height: 2px;
+    margin: 10px auto 0 auto;
+}
+
+
+.img-logo{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.img-logo-2{
+    width: 100px;
+    max-height: 100px;
+    min-height: 30px;
+}
+
+
+.band{
+    font-size: 14px;
+    background-color: #63768a;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-image: url('/assets/img/band.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+ 
+   
+}
+
+.band p{    
+    color: #fff;
+    padding-top: 21px;
+}
+
+
+
+  /** loading **/
+
+
+  @-webkit-keyframes moving-gradient {
+    0% {
+      background-position: -250px 0;
+    }
+    100% {
+      background-position: 250px 0;
+    }
+  }
+
+ 
+.loading-small {
+    height: 12px;
+    background: linear-gradient(to right, #eee 20%, #ddd 50%, #eee 80%);
+    background-size: 500px 100px;
+    animation-name: moving-gradient;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+  
+  .small1{
+      width: 100%;
+      height: 15px;
+  }
+
+  .small2{
+    width: 100%;
+}
+
+.small3{
+    width: 100%;
+}
+
+
+.loading-big {
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100px;
+  }
+

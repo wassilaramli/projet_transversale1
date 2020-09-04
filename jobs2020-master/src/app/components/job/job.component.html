@@ -1,0 +1,61 @@
+<app-layout></app-layout>
+
+<div *ngIf="job"  class="container">
+    <div class="row">
+   
+        <div class="col-md-offset-1 col-md-9">
+            <div class="row back-links">
+                <div class="col-md-6">
+                    <a  href="javascript:history.back();"><p ><i class="fa fa-arrow-left" aria-hidden="true"></i>  Retour à tous les emplois  </p></a>
+                </div> 
+                <div class="col-md-6 hidden-xs hidden-sm">
+                    <a class="pull-right" routerLinkActive="active" [routerLink]="['/']"><p > Afficher tous les emplois <i class="fa fa-arrow-right" aria-hidden="true"></i> </p></a>
+                </div>
+            </div>
+            <hr>
+            <div class="row job-details">
+                <div class="col-md-9 detail ">
+                    <p style="margin-bottom: 0;">
+                        <span class="text-muted">{{ ago(job.date)}}</span>
+                    </p>
+                    <h2 style="font-weight: 700;">
+                        {{job.jobtitle}}
+                    </h2>
+                    <div [innerHTML]="job.description">
+
+                    </div>
+                    <br><br> <br><br><br>
+                </div>
+                
+                <div class="col-md-3 apply sticky"  >
+                    <div class="panel panel-default panel-apply text-center">
+                        <div class="panel-body">
+                            <div *ngIf="job.logo!=''">
+                                <img  class="logo-societe" src="{{job.profile}}" >
+                                <hr>
+                            </div>
+                            <br>
+                            <p><b>{{job.name}}</b></p>
+                            <p><a (click)="postuler()" target="_blank"><i class="fa fa-globe" aria-hidden="true"></i> voir le site web</a></p> 
+                            <br>
+                        <hr>
+                            <a  (click)="postuler()"  target="_blank" class="btn btn-default btn-md btn-apply-mini "> Postuler </a>
+                      <br>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+         
+            
+            
+         
+           
+        </div>
+    </div>
+</div>
+
+
+

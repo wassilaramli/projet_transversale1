@@ -1,0 +1,135 @@
+<app-layout></app-layout>
+<div class="container what-section"  >
+    <div class="row">
+        <div class=" col-md-10 what-form">
+            <form  [formGroup]="FindForm" (ngSubmit)="onSubmitFindForm()">
+               
+                <div class="row" >
+                    <div class="col-md-9  col-sm-9 col-xs-12 what-form-col " >
+                        <div class="input-group input-what-group ">
+                            <span class="input-group-addon what"></span>
+                            <input id="msg" type="text"  formControlName="skills" [(ngModel)]="skills" [ngClass]="{ 'is-invalid': submitted && f.skills.errors }"  maxlength="512" placeholder="Entrez les compétences techniques.  Par exemple, Angular ..." autocomplete="off"  class="form-control input-what programming hidden-xs" name="skills">
+                            <span class="input-group-addon search"><i class="fa fa-search" aria-hidden="true"></i></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <button type="submit"  class="btn btn-default btn-primary btn-md btn-find-jobs btn-block">Recherche</button>
+                    </div>
+                </div>
+               
+                <div class="row">
+                    <div class="col-md-10 col-sm-12 col-xs-12 text-left"  style="padding: 0;">
+                        <div class="panel panel-search ">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-3 col-xs-12">
+                                        <select id="select1" class="minimal" (change)="change_date_range($event)"  [value] ="date_range">
+                                            <option value="all_time" selected disabled>Date postée</option>
+                                            <option value="today">Aujourd'hui </option>
+                                            <option value="yesterday">Hier </option>
+                                            <option value="this_week">7 derniers jours</option>
+                                            <option value="this_month">30 derniers jours</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3 col-xs-12">
+                                        <div class=" help-block visible-xs"></div>
+                                        <select id="select2" class="minimal" (change)="change_experience($event)"  [value] ="experience">
+                                            <option value="all_level" selected disabled> Niveau d'expérience </option>
+                                            <option value="mid_level">Niveau moyen </option>
+                                            <option value="senior_level">Niveau supérieur </option>
+                                            <option value="entry_level">Niveau d'entrée</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+           <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 text-left"  >
+                <div   class="row">
+                    <div class="col-md-8 col-sm-12 col-xs-12 col-post ">
+                        <div style="padding:10px 10px 0px 10px;">
+                            <p *ngIf="!loading"  style="font-size:13px">
+            
+                                <span class="pull-right">Trier par: 
+                                    <select (change)="change_sortby($event)"  [value] ="sortby">
+                                      <option value="date" selected >date</option> 
+                                    </select>
+                                  </span>
+                                  <br>
+
+                            </p>
+
+                        </div>
+                       
+                        <div *ngIf="!loading">
+                            <div *ngIf="no_data"  >
+                                <div *ngIf="no_data"  style="padding: 17px;" >
+                                    <p><b>Suggestions de recherche:</b></p>
+                                   
+                                        <ul>
+                                            <li>Essayez des mots clés plus généraux</li>
+                                            <li>Vérifie ton orthographe</li>
+                                            <li>Remplacez les abréviations par le mot entier</li>
+                                        </ul>                           
+                                       
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div  *ngIf="!loading">
+                            <a  *ngFor="let doc of all_jobs.data " routerLinkActive="active" [routerLink]="['/job',doc._id]" >
+                                <div class="panel panel-default panel-post">
+                                    <div class="panel-body">
+                                        <img style="display: none;"  class="logo-societe" src="{{doc.logo}}" >
+                                        <h4>
+                                            <b style="color:#4a2f9a"> {{limit(doc.jobtitle )}}  </b>
+                                        </h4>
+                                        <h5>
+                                            {{doc.company_id.name}}
+                                        </h5>
+                                        <p>
+                                            <b>{{doc.price}}</b>
+                                        </p>
+                                        <p>
+                                            {{doc.snippet}}
+                                        </p>
+                                        <p style="margin-bottom: 0;">
+                                            <span class="text-muted"> {{ago(doc.date)}}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                      
+                       
+                       
+                       
+                       
+                    </div>
+                    <div class="col-md-4  sticky hidden-sm hidden-xs col-email ">
+                        <div class="panel panel-default panel-email">
+                            <div class="panel-heading">Recevoir de nouvelles offres pour cette recherche</div>
+                                <div class="panel-body">
+                                    <form [formGroup]="alertForm" (ngSubmit)="onSubmitAlertForm()" >
+                              
+                                    
+                                    <button type="submit" *ngIf="!loading_alert_button"    class="btn btn-default activate btn-block"><i class="fa fa-bell-o" aria-hidden="true"></i> Activate</button>
+                                    <button type="button" *ngIf="loading_alert_button" [disabled]="true"    class="btn btn-default activate btn-block"><i class="fa fa-circle-o-notch fa-spin"></i> Loading...</button>
+                                  
+                                </form>
+                                </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+           </div>
+        </div>
+    </div>
+</div>
+
+
+
